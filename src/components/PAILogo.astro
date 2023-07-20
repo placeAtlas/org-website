@@ -1,0 +1,14 @@
+---
+import LogoDark from '../assets/logo-dark.svg'
+import Logo from '../assets/logo.svg'
+interface Props extends astroHTML.JSX.ImgHTMLAttributes {
+}
+
+// `post` will match your 'blog' collection schema type
+const props = Astro.props;
+---
+
+<picture>
+	<source srcset={ LogoDark.src } media="(prefers-color-scheme: dark)">
+	<img src={ Logo.src } width={ Logo.width } height={ Logo.height } { ...props }>
+</picture>

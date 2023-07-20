@@ -1,0 +1,36 @@
+---
+import PAILogo from '../assets/logo-flat.svg'
+import { Icon } from 'astro-icon'
+
+interface Props {
+	name: string,
+	altName: string,
+	websiteHref: string,
+	githubHref: string,
+	redditHref: string,
+	avatarSrc: string,
+}
+
+const { name, altName, websiteHref, githubHref, redditHref, avatarSrc } = Astro.props;
+
+---
+
+<div class="h-20 flex flex-col justify-center px-4 py-2 rounded border border-gray-300 dark:border-gray-600 mr-2 mb-2">
+	<div class="flex flex-row h-full items-center gap-2">
+		<img src={avatarSrc} class="h-12 w-12">
+		<div>
+			<p>Real name <small class="text-gray-600 dark:text-gray-400">(Main name)</small></p>
+			<p class="flex gap-1">
+				<a class="text-gray-500 hover:text-black active:text-black" href="#">
+					<Icon name="bi:globe" class="w-4 4-4"></Icon>
+				</a>
+				<a class="text-gray-500 hover:text-black active:text-black" href="#">
+					<Icon name="simple-icons:github" class="w-4 h-4"></Icon>
+				</a>
+				<a class="text-gray-500 hover:text-black active:text-black" href="#">
+					<Icon name="simple-icons:reddit" class="w-4 h-4"></Icon>
+				</a>
+			</p>		
+		</div>
+	</div>
+</div>

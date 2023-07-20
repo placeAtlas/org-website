@@ -1,0 +1,93 @@
+---
+---
+<div class="container mx-auto my-4 p-4 rounded border border-gray-300 dark:border-gray-600 hidden" id="entry-redirect">
+	<p>Redirecting...</p>
+</div>
+
+<script is:inline>
+	const instanceData = {
+		2017: {
+			id: "2017",
+			"url": "https://2017.place-atlas.stefanocoding.me/",
+			"dataUrl": "http://localhost:56643/atlas.json"
+		},
+		2022: {
+			id: "2022",
+			"url": "https://2022.place-atlas.stefanocoding.me/",
+			"dataUrl": "http://localhost:56657/atlas.json"
+		}
+	}
+
+	const normalizeId = id => {
+		return id.replace(/^zzz([a-z0-9]{8,})$/g, "$1").replace(/^0+/, '')
+	}
+
+	const displayEl = document.querySelector('#entry-redirect')
+	const explanationEl = displayEl.querySelector('p')
+
+	const attemptRedirect = async (id, hash) => {
+		try {
+			if (document.querySelector('#' + id)) return
+		} catch (e) {}
+		displayEl.classList.remove('hidden')
+		await Promise.all(Object.entries(instanceData).map(async ([id, data]) => {
+			const request = await fetch(data.dataUrl)
+			const response = await request.json()
+			instanceData[data.id].data = response
+		}))
+
+		const matches = {}
+		Object.entries(instanceData).map(([instanceId, data]) => {
+			const filtered = data.data.filter(entry => normalizeId(entry.id.toString()) === normalizeId(id))?.[0]
+			if (!filtered) return
+			matches[instanceId] = filtered
+			matches[instanceId].url = data.url + hash
+		})
+		if (Object.keys(matches).length === 1) {
+			const [instanceId, entry] = Object.entries(matches)[0]
+			explanationEl.textContent = `Match found in ${instanceId} (${entry.id}: ${entry.name}}! Redirecting in 3 seconds...`
+			// document.location.replace(entry.url)
+			setTimeout(() => {
+				// document.location.replace(entry.url)
+			}, 3000)
+
+		} else if (Object.keys(matches).length > 1) {
+			if (matches[2022]) {
+				const entry = matches[2022]
+				explanationEl.textContent = `Match found in 2022 (${entry.id}: ${entry.name}}! Redirecting in 3 seconds...`
+				const additionalEl = document.createElement('p')
+				additionalEl.textContent = "There are multiple matches across multiple instances. You can still pick between these before being redirected."
+				additionalEl.className = "mb-2"
+				displayEl.appendChild(additionalEl)
+				setTimeout(() => {
+					// document.location.replace(entry.url)
+				}, 3000)
+			} else {
+				explanationEl.textContent = "Multiple matches are found across multiple instances! Please pick between these."
+			}
+
+			explanationEl.className = "mb-2"
+
+			const listEl = document.createElement('ul')
+			listEl.className = "list-disc pl-8"
+			displayEl.appendChild(listEl)
+
+			Object.entries(matches).map(([instanceId, entry]) => {
+				const listItemEl = document.createElement('li')
+				listEl.appendChild(listItemEl)
+				
+				const anchorEl = document.createElement('a')
+				anchorEl.textContent = `${instanceId}: ${entry.id}: ${entry.name}`
+				anchorEl.href = entry.url
+				anchorEl.className = "text-blue-600 hover:text-blue-900 focus:text-blue-900 active:text-blue-900 dark:text-sky-400 dark:hover:text-sky-600 dark:focus:text-sky-600 dark:active:text-sky-600"
+				listItemEl.appendChild(anchorEl)
+			})
+
+
+			// TODO Probably for now, only match 2022
+		}
+	}
+	const hash = document.location.hash.slice(1).split('/')
+	if (hash && hash[0]) attemptRedirect(hash[0], document.location.hash)
+	// TODO Also check ?id=
+</script>

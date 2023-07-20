@@ -1,15 +1,155 @@
 ---
+import EntryRedirect from '../components/EntryRedirect.astro';
+import ProjectButton from '../components/ProjectButton.astro';
+import TeamMember from '../components/TeamMember.astro';
+import PAILogo from '../assets/logo-flat.svg'
+import PAILogoComponent from '../components/PAILogo.astro'
+import Favicon from '../components/Favicon.astro'
+import { Icon } from 'astro-icon'
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<Favicon></Favicon>
 		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="light dark">
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#222">
+
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+
+		<title>Place Atlas Initiative</title>
+		<meta name="description" content="Place Atlas Initiative is a group that hosts the r/place Atlas projects and others.">
+		<meta name="author" content="Place Atlas Initiative">
+		<meta name="robots" content="index, follow">
+		
+		<meta property="og:title" content="Place Atlas Intitative">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://place-atlas.stefanocoding.me/">
+		<meta property="og:image" content="https://place-atlas.stefanocoding.me/src/logo.png">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="512">
+		<meta property="og:image:height" content="512">
+		<meta property="og:image:alt" content="Place Atlas Intiative logo">
+		<meta property="og:description" content="Place Atlas Initiative is a group that hosts the r/place Atlas projects and others.">
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="dark:bg-gray-900 dark:text-white">
+		<EntryRedirect></EntryRedirect>
+		<main class="container mx-auto grid grid-cols-12 my-4 lg:gap-8">
+			<div class="col-span-12 lg:col-span-3 mb-4 lg:mb-0">
+				<div class="flex flex-row lg:flex-col items-center gap-4">
+					<PAILogoComponent class="mb-4 h-32 w-32 lg:w-full lg:h-full"></PAILogoComponent>
+					<div class="flex flex-col gap-2 lg:gap-4">
+						<h1 class="text-5xl font-bold">Place Atlas Initiative</h1>
+						<p class="text-gray-500">The atlas never completes...</p>
+						<p class="flex gap-1">
+							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#">
+								<Icon name="simple-icons:discord" class="w-8 h-8"></Icon>
+							</a>
+							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#">
+								<Icon name="simple-icons:github" class="w-8 h-8"></Icon>
+							</a>
+							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#">
+								<Icon name="simple-icons:reddit" class="w-8 h-8"></Icon>
+							</a>
+						</p>		
+					</div>
+				</div>
+			</div>
+			<div class="col-span-12 lg:col-span-9">
+				<p class="mb-4">Place Atlas Initiative is a group that hosts the r/place Atlas projects and others. It has a goal to archive and document the knowledge regarding the r/place event, hosted by Reddit.</p>
+				<p class="mb-4">The initiative is open all contributions from all over the world, with open source as the main spirit of the projects.</p>
+				<section id="projects" class="mb-4">
+					<h2 class="text-4xl font-semibold mb-4">Projects</h2>
+					<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-4">
+						<ProjectButton href="#">
+							<p>The 2017 r/place Atlas</p>
+							<p>(continued)</p>
+						</ProjectButton>
+						<ProjectButton href="#">
+							<div class="flex flex-row h-full items-center gap-2">
+								<PAILogoComponent class="h-12 w-12"></PAILogoComponent>
+								<p>The 2022 r/place Atlas</p>
+							</div>
+						</ProjectButton>
+						<ProjectButton href="#">
+							<div class="flex flex-row h-full items-center gap-2">
+								<PAILogoComponent class="h-12 w-12"></PAILogoComponent>
+								<p>The 2023 r/place Atlas</p>
+							</div>
+						</ProjectButton>
+						<ProjectButton href="#">
+							<p>The r/place Wiki</p>
+						</ProjectButton>
+					</div>		
+				</section>
+				<section id="team" class="mb-4">
+					<h2 class="text-4xl font-semibold mb-4">Team</h2>
+					<section id="project-leader" class="mb-4">
+						<h3 class="text-2xl font-semibold mb-4">Project Leader</h3>
+						<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-3">
+							<TeamMember></TeamMember>
+						</div>
+					</section>
+					<section id="archival-team" class="mb-4">
+						<h3 class="text-2xl font-semibold mb-4">Archival Team</h3>
+						<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-3">
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+						</div>
+
+					</section>
+					<section id="development-team" class="mb-4">
+						<h3 class="text-2xl font-semibold mb-4">Development Team</h3>
+						<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-3">
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+						</div>
+
+					</section>
+					<section id="wiki-team" class="mb-4">
+						<h3 class="text-2xl font-semibold mb-4">Wiki Team</h3>
+						<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-3">
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+							<TeamMember></TeamMember>
+	
+						</div>
+					</section>
+				</section>
+			</div>
+		</main>
 	</body>
 </html>
+
+<script>
+	import "@fontsource/open-sans";
+	import "@fontsource/open-sans/600.css";
+	import "@fontsource/open-sans/700.css";
+</script>
+
+<style>
+	body {
+		font-family: "Open Sans";
+	}
+</style>
