@@ -2,10 +2,11 @@
 import EntryRedirect from '../components/EntryRedirect.astro';
 import ProjectButton from '../components/ProjectButton.astro';
 import TeamMember from '../components/TeamMember.astro';
-import PAILogo from '../assets/logo-flat.svg'
+import Atlas2017Logo from '../assets/atlas-2017.png'
 import PAILogoComponent from '../components/PAILogo.astro'
 import Favicon from '../components/Favicon.astro'
 import { Icon } from 'astro-icon'
+import { Image } from 'astro:assets'
 ---
 
 <html lang="en">
@@ -44,13 +45,13 @@ import { Icon } from 'astro-icon'
 						<h1 class="text-5xl font-bold">Place Atlas Initiative</h1>
 						<p class="text-gray-500">The atlas never completes...</p>
 						<p class="flex gap-1">
-							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#">
+							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#" target="_blank">
 								<Icon name="simple-icons:discord" class="w-8 h-8"></Icon>
 							</a>
-							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#">
+							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#" target="_blank">
 								<Icon name="simple-icons:github" class="w-8 h-8"></Icon>
 							</a>
-							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#">
+							<a class="text-gray-500 hover:text-black active:text-black dark:active:text-white dark:hover:text-white" href="#" target="_blank">
 								<Icon name="simple-icons:reddit" class="w-8 h-8"></Icon>
 							</a>
 						</p>		
@@ -63,24 +64,52 @@ import { Icon } from 'astro-icon'
 				<section id="projects" class="mb-4">
 					<h2 class="text-4xl font-semibold mb-4">Projects</h2>
 					<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-4">
-						<ProjectButton href="#">
+						<ProjectButton href="https://2017.place-atlas.stefanocoding.me/" target="_blank">
 							<p>The 2017 r/place Atlas</p>
 							<p>(continued)</p>
 						</ProjectButton>
-						<ProjectButton href="#">
+						<ProjectButton href="https://2022.place-atlas.stefanocoding.me/" target="_blank">
 							<div class="flex flex-row h-full items-center gap-2">
 								<PAILogoComponent class="h-12 w-12"></PAILogoComponent>
 								<p>The 2022 r/place Atlas</p>
 							</div>
 						</ProjectButton>
-						<ProjectButton href="#">
+						<ProjectButton href="https://2023.place-atlas.stefanocoding.me/" target="_blank">
 							<div class="flex flex-row h-full items-center gap-2">
 								<PAILogoComponent class="h-12 w-12"></PAILogoComponent>
 								<p>The 2023 r/place Atlas</p>
 							</div>
 						</ProjectButton>
-						<ProjectButton href="#">
+						<ProjectButton href="https://place-wiki.stefanocoding.me/" target="_blank">
 							<p>The r/place Wiki</p>
+						</ProjectButton>
+					</div>		
+				</section>
+				<section id="affiliated" class="mb-4">
+					<h2 class="text-2xl font-semibold mb-4">Affiliated Projects</h2>
+					<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-4">
+						<ProjectButton href="https://draemm.li/various/place-atlas/" target="_blank">
+							<div class="flex flex-row h-full items-center gap-2">
+								<Image src={ Atlas2017Logo } alt="The r/place Atlas logo" class="h-12 w-12"></Image>
+								<div>
+									<p>The 2017 r/place Atlas</p>
+									<p>(old)</p>
+								</div>
+							</div>
+							
+						</ProjectButton>
+						<ProjectButton href="https://www.reddit.com/r/thefinalclean/" target="_blank">
+							<div class="flex flex-row h-full items-center gap-2">
+								<Image src="https://cdn.discordapp.com/icons/298563322041860096/32d2bf32a102b923c481007a70736c5c.webp" width="256" height="256" alt="The r/place Atlas logo" class="h-12 w-12"></Image>
+								<div>
+									<p>The Final Clean</p>
+								</div>
+							</div>
+						</ProjectButton>
+						<ProjectButton href="https://hans5958.github.io/place-catalog" target="_blank">
+							<div class="flex flex-row h-full items-center gap-2">
+								<p>The 2022 r/place Catalog</p>
+							</div>
 						</ProjectButton>
 					</div>		
 				</section>
@@ -89,50 +118,238 @@ import { Icon } from 'astro-icon'
 					<section id="project-leader" class="mb-4">
 						<h3 class="text-2xl font-semibold mb-4">Project Leader</h3>
 						<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-3">
-							<TeamMember></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/25939526'
+								name='TCOOfficiall'
+								altName='Stefano Haagmans'
+								websiteHref='https://stefanocoding.me/'
+								redditHref='https://reddit.com/user/TCOOfficiall'
+								githubHref='https://github.com/Codixer'
+							></TeamMember>
 						</div>
 					</section>
 					<section id="archival-team" class="mb-4">
 						<h3 class="text-2xl font-semibold mb-4">Archival Team</h3>
 						<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-3">
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/18347932'
+								name='tycho'
+								altName='electric-blue'
+								websiteHref=''
+								redditHref='https://reddit.com/user/electric-blue'
+								githubHref='https://github.com/ab-gh'
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/24706838'
+								name='Nick12'
+								altName='Nico Abram'
+								websiteHref=''
+								redditHref=''
+								githubHref='https://github.com/nico-abram'
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/290205761425113091/3666ac1fed504a831b2e132a28f9566e'
+								name='m654zy'
+								altName=''
+								websiteHref=''
+								redditHref='https://reddit.com/user/m654zy'
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/6516839'
+								name='AnonymousRandPerson'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref='https://github.com/AnonymousRandomPerson'
+							></TeamMember>
 						</div>
 
 					</section>
 					<section id="development-team" class="mb-4">
 						<h3 class="text-2xl font-semibold mb-4">Development Team</h3>
 						<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-3">
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
+							<TeamMember 
+								avatarSrc='https://avatars.githubusercontent.com/u/11584103'
+								name='Hans5958'
+								altName='Hans5958_'
+								websiteHref='https://hans5958.github.io'
+								redditHref='https://reddit.com/u/Hans5958_'
+								githubHref='https://github.com/Hans5958'
+							></TeamMember>
+							<TeamMember
+								avatarSrc=''
+								name='skyyc'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/26527928'
+								name='prosto_sanja'
+								altName='Alex Tsernoh'
+								websiteHref='https://place.thatguyalex.com/'
+								redditHref=''
+								githubHref='https://github.com/ProstoSanja'
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/536894495841845259/bf7bfad0aa37aee23001a89d5ef6b2b9'
+								name='jso'
+								altName='jsoner'
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/32040254'
+								name='mxdanger'
+								altName=''
+								websiteHref=''
+								redditHref='https://reddit.com/user/mxdanger'
+								githubHref='https://github.com/mxdanger'
+							></TeamMember>
 						</div>
 
 					</section>
 					<section id="wiki-team" class="mb-4">
 						<h3 class="text-2xl font-semibold mb-4">Wiki Team</h3>
 						<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-3">
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
-							<TeamMember></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/65846594'
+								name='Aeywoo'
+								altName='xXLInkster17Xx'
+								websiteHref=''
+								redditHref='https://reddit.com/user/xXLInkster17Xx'
+								githubHref='https://github.com/Aeywoo'
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/24706838'
+								name='Nick12'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref='https://github.com/nico-abram'
+							></TeamMember>
+							<TeamMember
+								avatarSrc=''
+								name='pax'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/8906201'
+								name='Artillect'
+								altName=''
+								websiteHref='https://twitter.com/ArtillectYT'
+								redditHref='https://reddit.com/user/Artillect'
+								githubHref='https://github.com/artillect'
+							></TeamMember>
+							<TeamMember
+								avatarSrc=''
+								name='axollyon'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/38139192'
+								name='Crzka'
+								altName='Cappy Ishihara'
+								websiteHref=''
+								redditHref=''
+								githubHref='https://github.com/korewaChino'
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/707355480422350848/091859008fc642d3dc2cf1c8ca2f4850'
+								name='CodeDev'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/519224574886412288/5fbc50c86a0163d3764b2de113770439'
+								name='dntk'
+								altName='treeway7'
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/339185742292975616/31e221e71cf09ed2c3f905aa7e26f7ca'
+								name='Eurobat'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								name='FuriousChocolate'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/191920517215813633/56f92b7fdfec52f006e4592a8961fdf0'
+								name='geekahedron'
+								altName=''
+								websiteHref=''
+								redditHref='https://reddit.com/user/geekahedron'
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc=''
+								name='samurai_crusader'
+								altName='Jim Milton'
+								websiteHref=''
+								redditHref='https://cdn.discordapp.com/avatars/708919552481689640/e0211898ea24b8b3ac904cf65711a44a?size=1024'
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/423152878409089025/cfd67403a18865cd22e6b87815863120'
+								name='Noah'
+								altName='NoahS04'
+								websiteHref=''
+								redditHref='https://reddit.com/user/red__flag_'
+								githubHref='https://github.com/NoahS04'
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/159826404077338624/5450c38ab9021cbc591c9618e9932f3d'
+								name='Saya'
+								altName='sayaduck'
+								websiteHref='https://twitch.tv/bestieinslot'
+								redditHref='https://www.reddit.com/user/sayaduck'
+								githubHref=''
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/82996946'
+								name='Sodapone'
+								altName=''
+								websiteHref='https://twitter.com/sodapone'
+								redditHref='https://reddit.com/user/sodapone'
+								githubHref='https://github.com/Sodapone'
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://avatars.githubusercontent.com/u/66711677'
+								name='dreamingkills'
+								altName='tea'
+								websiteHref=''
+								redditHref=''
+								githubHref='https://github.com/dreamingkills'
+							></TeamMember>
+							<TeamMember
+								avatarSrc='https://cdn.discordapp.com/avatars/423585363265585162/217bd30f3965f44118edb85d60a26293'
+								name='Zurke'
+								altName=''
+								websiteHref=''
+								redditHref=''
+								githubHref=''
+							></TeamMember>
 	
 						</div>
 					</section>
