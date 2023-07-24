@@ -65,8 +65,13 @@ import { Image } from 'astro:assets'
 					<h2 class="text-4xl font-semibold mb-4">Projects</h2>
 					<div class="col-span-9 grid sm:grid-cols-2 lg:grid-cols-4">
 						<ProjectButton href="https://2017.place-atlas.stefanocoding.me/" target="_blank">
-							<p>The 2017 r/place Atlas</p>
-							<p>(continued)</p>
+							<div class="flex flex-row h-full items-center gap-2">
+								<Image src={ Atlas2017Logo } alt="The r/place Atlas logo" class="h-12 w-12"></Image>
+								<div>
+									<p>The 2017 r/place Atlas</p>
+									<p>(continued)</p>
+								</div>
+							</div>
 						</ProjectButton>
 						<ProjectButton href="https://2022.place-atlas.stefanocoding.me/" target="_blank">
 							<div class="flex flex-row h-full items-center gap-2">
@@ -81,7 +86,10 @@ import { Image } from 'astro:assets'
 							</div>
 						</ProjectButton>
 						<ProjectButton href="https://place-wiki.stefanocoding.me/" target="_blank">
-							<p>The r/place Wiki</p>
+							<div class="flex flex-row h-full items-center gap-2">
+								<Image src="https://place-wiki.stefanocoding.me/resources/assets/sitelogo.png" width="128" height="128" class="h-12 w-12" alt="The r/place Wiki logo"></Image>
+								<p>The r/place Wiki</p
+							</div>
 						</ProjectButton>
 					</div>		
 				</section>
@@ -95,8 +103,7 @@ import { Image } from 'astro:assets'
 									<p>The 2017 r/place Atlas</p>
 									<p>(old)</p>
 								</div>
-							</div>
-							
+							</div>	
 						</ProjectButton>
 						<ProjectButton href="https://www.reddit.com/r/thefinalclean/" target="_blank">
 							<div class="flex flex-row h-full items-center gap-2">
