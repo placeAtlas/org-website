@@ -14,7 +14,7 @@ interface Props {
 const { name, altName, websiteHref, githubHref, redditHref, avatarSrc } = Astro.props
 ---
 
-<div class="flex flex-col justify-center p-2 rounded border border-gray-300 dark:border-gray-600 mr-2 mb-2">
+<div class="h-16 flex flex-col justify-center p-2 rounded border border-gray-300 dark:border-gray-600 mr-2 mb-2">
 	<div class="flex flex-row items-center gap-2">
 		{ avatarSrc && <Image src={ avatarSrc } alt={ "Profile picture of " + name } class="h-12 w-12" width="192" height="192"></Image> }
 		<div class="gap-1">
