@@ -32,7 +32,7 @@
 
 	const attemptRedirect = async (id, hash) => {
 		try {
-			if (document.querySelector('#' + id)) return
+			if (document.getElementById(id)) return
 		} catch (e) {}
 		displayEl.classList.remove('hidden')
 		await Promise.all(Object.entries(instanceData).map(async ([id, data]) => {
@@ -53,7 +53,7 @@
 			explanationEl.textContent = `Match found in ${instanceId} (${entry.id}: ${entry.name}}! Redirecting in 3 seconds...`
 			// document.location.replace(entry.url)
 			setTimeout(() => {
-				// document.location.replace(entry.url)
+				document.location.replace(entry.url)
 			}, 3000)
 
 		} else if (Object.keys(matches).length > 1) {
@@ -65,7 +65,7 @@
 				additionalEl.className = "mb-2"
 				displayEl.appendChild(additionalEl)
 				setTimeout(() => {
-					// document.location.replace(entry.url)
+					document.location.replace(entry.url)
 				}, 3000)
 			} else {
 				explanationEl.textContent = "Multiple matches are found across multiple instances! Please pick between these."
