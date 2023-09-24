@@ -25,5 +25,5 @@
 		}, 3000)
 	}
 	
-	attemptRedirect(document.location)
+	document.readyState !== "loading" ? attemptRedirect(document.location) : document.addEventListener("DOMContentLoaded", () => attemptRedirect(document.location))
 </script>
