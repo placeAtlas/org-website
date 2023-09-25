@@ -7,6 +7,8 @@ import PAILogoComponent from '../components/PAILogo.astro'
 import Favicon from '../components/Favicon.astro'
 import { Icon } from 'astro-icon'
 import { Image } from 'astro:assets'
+import Logo from '../assets/logo.svg'
+import LogoDark from '../assets/logo-dark.svg'
 ---
 
 <html lang="en">
@@ -37,10 +39,33 @@ import { Image } from 'astro:assets'
 	</head>
 	<body class="dark:bg-gray-900 dark:text-white">
 		<EntryRedirect></EntryRedirect>
-		<main class="max-w-[96rem] p-8 mx-auto grid grid-cols-[300px_1fr] lg:gap-8">
+		<section id="intro" class="min-h-screen bg-gradient-to-r dark:bg-gradient-to-br from-orange-950 to-orange-900 flex items-center overflow-hidden relative">
+			<div class="max-w-[96rem] px-8 py-20 mx-auto grid grid-cols-[300px_1fr] gap-8 items-center">
+				<div class="col-span-2 xl:col-span-1">
+					<div class="flex flex-row xl:flex-col items-start gap-4 h-32 xl:h-[300px]">
+						<Image src={ LogoDark } width={ LogoDark.width } height={ LogoDark.height } class="mb-4 xl:mb-0 w-32 h-32 xl:w-[300px] xl:h-[300px]" alt="" />
+					</div>
+				</div>
+				<div class="col-span-2 xl:col-span-1 text-white">
+					<p class="mb-4 sm:text-xl xl:text-2xl"><span class="font-extrabold">Place Atlas Initiative</span> is a group/an organization that hosts the r/place Atlas projects and others. Our main goal to archive and document the knowledge regarding the r/place April Fools event, hosted by Reddit.</p>
+					<p class="mb-6 sm:text-xl xl:text-2xl">The initiative hosts projects powered by collaboration across the world. We are open to contributions, with <a class="text-blue-400 hover:text-blue-600 active:text-blue-600" href="https://en.wikipedia.org/wiki/Free_content">free content</a> and <a class="text-blue-400 hover:text-blue-600 active:text-blue-600" href="https://en.wikipedia.org/wiki/Open_source">open source</a> hold as the main spirit of the projects.</p>
+					<h2 class="mb-2 sm:text-lg xl:text-xl font-semibold">Current focus</h2>
+					<a class="sm:text-lg xl:text-xl h-20 flex flex-1 flex-col justify-center px-4 py-2 rounded bg-white text-black hover:bg-gray-200 focus:bg-gray-200 active:bg-gray-300 focus:ring focus:ring-blue-500 focus:outline-none active:outline-none mr-2 mb-2" href="https://2023.place-atlas.stefanocoding.me/" target="_blank">
+						<div class="flex flex-row h-full items-center gap-2 sm:gap-3">
+							<Image src={ Logo } width={ Logo.width } height={ Logo.height } class="h-12 w-12" alt="" />
+							<p>The 2023 r/place Atlas</p>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="absolute w-full bottom-6 text-white text-center flex justify-center">
+				<a href="#main"><Icon class="animate-bounce w-6 h-6 sm:w-8 sm:h-8" name="bi:arrow-down"></Icon></a>
+			</div>
+		</section>
+		<main id="main" class="max-w-[96rem] p-8 mx-auto grid grid-cols-[300px_1fr] lg:gap-8 bg-white dark:bg-gray-900 dark:text-white">
 			<div class="col-span-2 xl:col-span-1 mb-4 lg:mb-0">
 				<div class="flex flex-row xl:flex-col items-start gap-4">
-					<PAILogoComponent class="mb-4 w-32 xl:w-full"></PAILogoComponent>
+					<PAILogoComponent class="mb-4 xl:mb-0 w-32 xl:w-full"></PAILogoComponent>
 					<div class="flex flex-col gap-2 xl:gap-4">
 						<h1 class="text-4xl sm:text-5xl font-bold">Place Atlas Initiative</h1>
 						<p class="text-gray-500">Documenting as it is, not as we want.</p>
@@ -59,8 +84,6 @@ import { Image } from 'astro:assets'
 				</div>
 			</div>
 			<div class="col-span-2 xl:col-span-1">
-				<p class="mb-4 sm:text-lg lg:text-xl sm:leading-relaxed">Place Atlas Initiative is a group/an organization that hosts the r/place Atlas projects and others. Our main goal to archive and document the knowledge regarding the r/place April Fools event, hosted by Reddit.</p>
-				<p class="mb-4 sm:text-lg lg:text-xl sm:leading-relaxed">The initiative hosts projects powered by collaboration across the world. We are open to contributions, with <a class="text-blue-600 hover:text-blue-900 active:text-blue-900" href="https://en.wikipedia.org/wiki/Free_content">free content</a> and <a class="text-blue-600 hover:text-blue-900 active:text-blue-900" href="https://en.wikipedia.org/wiki/Open_source">open source</a> hold as the main spirit of the projects.</p>
 				<section id="projects" class="mb-4">
 					<h2 class="text-4xl font-semibold mb-4">Projects</h2>
 					<div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,_minmax(20rem,_1fr))]">
@@ -357,13 +380,15 @@ import { Image } from 'astro:assets'
 </html>
 
 <script>
-	import "@fontsource/open-sans";
-	import "@fontsource/open-sans/600.css";
-	import "@fontsource/open-sans/700.css";
+	import "@fontsource/dm-sans";
+	import "@fontsource/dm-sans/500.css";
+	import "@fontsource/dm-sans/600.css";
+	import "@fontsource/dm-sans/700.css";
+	import "@fontsource/dm-sans/800.css";
 </script>
 
 <style>
 	body {
-		font-family: "Open Sans";
+		font-family: "DM Sans";
 	}
 </style>

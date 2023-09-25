@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
-    "@fontsource/inter": "^5.0.8",
-    "@fontsource/open-sans": "^5.0.12",
+    "@fontsource/dm-sans": "^5.0.12",
     "astro": "^3.1.0",
     "astro-icon": "^0.8.1",
     "sharp": "^0.32.5",
